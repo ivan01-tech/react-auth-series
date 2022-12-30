@@ -1,0 +1,111 @@
+{
+  "registers": [
+    {
+      "username": "ivan",
+      "password": "AZE123@@",
+      "id": 1
+    },
+    {
+      "username": "Ivan001",
+      "password": "AZE111@@",
+      "id": 2
+    },
+    {
+      "username": "AFIvan01",
+      "password": "111AAA@@",
+      "id": "AFI111"
+    },
+    {
+      "username": "AFIvan01",
+      "password": "Z11AAA@1",
+      "id": "AFIZ11"
+    },
+    {
+      "username": "AFIvan01",
+      "password": "AFIZ11@@",
+      "id": "AFIAFI"
+    },
+    {
+      "username": "ivansilatsa",
+      "password": "111AAA@@",
+      "id": "iva111"
+    },
+    {
+      "username": "ivansilatsa",
+      "password": "1A2Z3E@@",
+      "id": "iva1A2"
+    }
+  ],
+  "auth": [
+    {
+      "username": "ivan",
+      "password": "111AAA@@",
+      "id": 1
+    },
+    {
+      "username": "wdfbqe",
+      "password": "qdfrbq",
+      "id": "wdfqdf"
+    },
+    {
+      "username": "ivan",
+      "password": "ergeh",
+      "id": "ivaerg"
+    },
+    {
+      "username": "ivan1",
+      "password": "ergeh1",
+      "id": "ivaerg1"
+    },
+    {
+      "username": "dfgbrtg",
+      "password": "qetbhrt",
+      "id": "dfgqet"
+    },
+    {
+      "username": "erfver",
+      "password": "erver",
+      "id": "erferv"
+    },
+    {
+      "username": "aerf\"r",
+      "password": "aervfer",
+      "id": "aeraer"
+    },
+    {
+      "username": "edrbedb",
+      "password": "dfbqet",
+      "id": "edrdfb"
+    },
+    {
+      "username": "sfb",
+      "password": "fbsd",
+      "id": "sfbfbs"
+    },
+    {
+      "username": "zscfze",
+      "password": "zsefze",
+      "id": "zsczse"
+    },
+    {
+      "username": "ezrg",
+      "password": "erge",
+      "id": "ezrerg"
+    },
+    {
+      "username": "",
+      "password": "",
+      "id": 2
+    },
+    {
+      "username": "erfer",
+      "password": "erger",
+      "id": "erferg"
+    },
+    {
+      "username": "erer",
+      "password": "ergver",
+      "id": "ereerg"
+    }
+  ]
+}
