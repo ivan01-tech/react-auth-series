@@ -12,6 +12,7 @@ root.render(
     <BrowserRouter>
       <AuthContext>
         <Routes>
+          {/* to catch all routes */}
           <Route path='/*' element={<App />} />
         </Routes>
       </AuthContext>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 // import Axios from "./api/Axios";
 import { useAuthCpntext } from "./context/AuthContext";
+import Axios from "./api/Axios";
 const LOG_URL = "http://localhost:3500/auth";
 
 function Login() {
@@ -34,37 +35,41 @@ function Login() {
   const handleSubmit = async function (e) {
     e.preventDefault();
     try {
-      const response = await fetch(LOG_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: user,
+      const response = await Axios.post(
+        LOG_URL,
+        JSON.stringify({
+          name: user,
           password: passwrd,
-          id: user.substring(0, 3) + passwrd.substring(0, 3),
         }),
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+
+      console.log(response.data.accesToken);
+      console.log(response.data.roles);
+      console.log(response.data);
+
+      setAuth({
+        name: user,
+        password: passwrd,
+        roles: response.data.roles,
       });
 
-      const data = await response.json();
-
-      if (data) {
-        console.log(data);
-        setAuth({
-          username: user,
-          password: passwrd,
-          id: user.substring(0, 3) + passwrd.substring(0, 3),
-        });
-        setErrMsg("");
-        navigate(from, { replace: true });
-      } else {
-        setErrMsg("No server response, Login Failed");
-      }
+      setErrMsg("");
+      navigate(from, { replace: true });
     } catch (err) {
       if (!err?.response) {
         setErrMsg("No server response !");
+      } else if (!err.response?.status === 400) {
+        setErrMsg("Missing userName and Password");
+      } else if (!err?.response.status === 401) {
+        setErrMsg("Unauthorized");
       } else {
-        setErrMsg("Somethongs went wrong !");
+        setErrMsg("Login Failed");
       }
       errRef?.current?.focus();
     } finally {

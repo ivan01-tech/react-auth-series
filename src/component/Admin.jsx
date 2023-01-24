@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import Users from "./Users";
 
 function Admin() {
   return (
-    <h1>Admin</h1>
-  )
+    <div>
+      <h1>Admin</h1>
+      <Users />
+    </div>
+  );
 }
 
-export default Admin
+export default Admin;

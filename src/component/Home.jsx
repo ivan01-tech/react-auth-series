@@ -1,7 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useLogout from "../hooks/useLogout";
 
 function Home() {
+  const logut = useLogout();
+
+  const signOut = function () {
+    logut();
+    navigator("/linkpage");
+  };
+
   return (
     <h1>
       Home
@@ -13,7 +21,7 @@ function Home() {
       <Link to="/lounge">Go to Lounge</Link>
       <br />
       <Link to="/linkpage">Go to Link page</Link>
-      <button>Sign Out</button>
+      <button onClick={signOut}>Sign Out</button>
     </h1>
   );
 }

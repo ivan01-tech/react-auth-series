@@ -13,6 +13,13 @@ import Editor from "./component/Editor";
 import AuthRequire from "./AuthRequire";
 import FormStep from "./MultiStepForm/FormStep";
 import FormContexProvider from "./MultiStepForm/FormContext";
+import PersistUser from "./component/PersistUser";
+
+const ROLES_LIST = {
+  Admin: 5000,
+  Editor: 3000,
+  User: 1000,
+};
 
 function App() {
   return (
@@ -35,13 +42,26 @@ function App() {
         />
 
         {/* protected Page */}
-        <Route element={<AuthRequire />}>
-          <Route path="/" element={<Home />} />
-          <Route path="lounge" element={<Lounge />} />
-          <Route path="admin" element={<Admin />} />
-          <Route path="editor" element={<Editor />} />
+        <Route element={<PersistUser />}>
+          <Route element={<AuthRequire allowedRoles={[ROLES_LIST.User]} />}>
+            <Route path="/" element={<Home />} />
+          </Route>
+          <Route
+            element={
+              <AuthRequire
+                allowedRoles={[ROLES_LIST.Editor, ROLES_LIST.Admin]}
+              />
+            }
+          >
+            <Route path="lounge" element={<Lounge />} />
+          </Route>
+          <Route element={<AuthRequire allowedRoles={[ROLES_LIST.Admin]} />}>
+            <Route path="admin" element={<Admin />} />
+          </Route>
+          <Route element={<AuthRequire allowedRoles={[ROLES_LIST.Editor]} />}>
+            <Route path="editor" element={<Editor />} />
+          </Route>
         </Route>
-
         <Route path="*" element={<MissingPage />} />
       </Route>
     </Routes>

@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 function LinkPage() {
   return (
     <h1>
-      Links <br />
+      Links <br /> <br />
       Public
       <br />
       <Link to="/register">Register</Link> <br />
       <Link to="/login">Login</Link>
-      <br />
+      <br /> <br />
       Private <br />
       <Link to="/editor">Go to editor page</Link>
       <br />

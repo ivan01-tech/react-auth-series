@@ -44,9 +44,12 @@ function FormContexProvider({ children }) {
 
   const handleFormValue = function (prefixe, setPage) {
     const { checkOpt, checkShip, ...requiredInput } = data
-    const canSave = Object.keys(requiredInput).filter(a => a.startsWith(prefixe)).map(function (a) {
-      return data[a]
-    }).every(Boolean)
+    const canSave = Object.keys(requiredInput)
+      .filter(a => a.startsWith(prefixe))
+      .map(function (a) {
+        return data[a]
+      })
+      .every(Boolean)
 
     if (!canSave) {
       console.log("can save the form", canSave)
